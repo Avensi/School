@@ -1,0 +1,178 @@
+Ce que doit faire votre programme :
+L'objectif est de construire une tour à l'aide de petits cubes en bois, sachant que la forme de cette tour consiste en un ensemble de grands cubes placés les uns au-dessus des autres. La base de la tour est un cube de taille 17×17×17, c'est-à-dire composé de 17×17×17 = 4 913 petits cubes. Sur ce cube est posé un autre cube de taille 15×15×15. Au-dessus de ce dernier se trouve un cube de 13×13×13. La tour continue ainsi jusqu'à atteindre le sommet, qui consiste en un cube de taille 1×1×1.
+nbCube = 1
+coté = 1
+total = 1
+
+for loop in range (8):
+   coté = coté + 2
+   nbCube = coté*coté*coté
+   total = total + nbCube
+print(total)
+-----------------
+Ce que doit faire votre programme :
+Votre programme doit d'abord lire le nombre de Karvas en compétition. Ensuite, pour chaque Karva, il doit :
+
+lire 4 entiers : son poids, son âge, la longueur de ses cornes et la hauteur au garrot ;
+afficher sa note, sachant qu'elle s'obtient en multipliant la longueur des cornes par la hauteur au garrot, valeur à laquelle on ajoute le poids.
+nombre_karva = int(input())
+
+for _ in range(nombre_karva):
+    poids = int(input())
+    _ = int(input()) # âge inutile...
+    longueur = int(input())
+    hauteur = int(input())
+    resultat = longueur * hauteur + poids
+    print(resultat)
+---------------
+Un socle est ainsi constitué d'étages, chaque étage ayant une hauteur égale à une unité et une base carrée. Le côté des carrés diminue de une unité à chaque étage.
+
+Votre programme doit lire deux entiers, représentant respectivement la largeur du socle au niveau du sol et la largeur du socle au niveau de la face supérieure du socle. Il doit ensuite calculer et afficher le volume du socle.
+largeur=int(input())
+superieur=int(input())
+cubes=0
+for i in range(largeur - superieur + 1):
+   cubes=cubes+largeur*largeur
+   largeur=largeur-1
+print(cubes)
+----------------
+Ce que doit faire votre programme :
+Il y a trois entiers à lire : la position de départ positionDepart, la largeur d'un emplacement largeurEmplacement et le nombre de vendeurs nbVendeurs.
+
+Vous devez afficher une suite de nombres, partant de positionDepart et augmentant de largeurEmplacement à chaque fois. Il y a au total nbVendeurs augmentations à faire. Vous devez afficher la valeur de chacun des nombres de la suite.
+positionDepart=int(input())
+largeurEmplacement=int(input())
+nbVendeurs=int(input())
+print(positionDepart)
+for i in range(nbVendeurs):
+    positionDepart=positionDepart+largeurEmplacement
+    print(positionDepart)
+-----------------
+Ce que doit faire votre programme :
+Votre programme devra lire un premier entier : le nombre de membres nbMembres qui constituent une équipe. Ensuite, il devra lire les poids (en kilogrammes), au total nbMembres × 2, sachant que le premier poids est celui d'un joueur de la 1re équipe, le deuxième poids celui d'un joueur de la 2e équipe, le troisième la 1re équipe, le quatrième la 2e équipe, etc.
+
+Après avoir calculé le poids total de chaque équipe, vous devrez afficher le texte « L'équipe X a un avantage » (en remplaçant X par la valeur 1 ou 2), en considérant qu'une équipe est avantagée si elle a un poids total supérieur à celui de l'autre.
+
+Vous afficherez ensuite le texte « Poids total pour l'équipe 1 : » suivi du poids de l'équipe 1, puis « Poids total pour l'équipe 2 : » suivi du poids de l'équipe 2 (voir l'exemple ci-dessous).
+
+On vous garantit que les deux équipes n'auront pas le même poids total.
+nbMembres = int(input())
+poidstotal1 = 0
+poidstotal2 = 0
+for loop in range (nbMembres):
+    poids1 = int(input())
+    poids2 = int(input())
+    poidstotal1 = poidstotal1 + poids1
+    poidstotal2 = poidstotal2 + poids2
+if poidstotal1>poidstotal2:
+    print("L'équipe 1 a un avantage")
+    print("Poids total pour l'équipe 1 :", poidstotal1)
+    print("Poids total pour l'équipe 2 :", poidstotal2)
+else:
+    print("L'équipe 2 a un avantage")
+    print("Poids total pour l'équipe 1 :", poidstotal1)
+    print("Poids total pour l'équipe 2 :", poidstotal2)
+-----------------
+Ce que doit faire votre programme :
+Votre programme doit lire un entier : le code fourni par l'utilisateur. Si ce code correspond au code secret, qui est 64 741, alors le programme devra afficher le texte « Bon festin ! ». Sinon, il devra afficher « Allez-vous en ! ».
+
+code=int(input())
+secret=64741
+if code==secret:
+    print("Bon festin !")
+else:
+    print("Allez-vous en !")
+------------------
+Ce que doit faire votre programme :
+Votre programme doit d'abord lire un entier décrivant votre position actuelle sur la route, sous la forme d'un nombre de kilomètres par rapport au début de la route. Ensuite, il doit lire un entier donnant le nombre de villages. Pour chaque village, il doit lire un entier décrivant la position de ce village le long de cette même route. Votre programme doit alors afficher le nombre de villages qui se trouvent à une distance inférieure ou égale à 50 km de votre position actuelle.
+position=int(input())
+nbVillage=int(input())
+ville=0
+for i in range(nbVillage):
+    trajet=int(input())
+    écart= position-trajet
+    if écart<=0:
+       écart=-écart
+    if écart<=50:
+       ville=ville+1
+print(ville)
+----------------------
+Ce que doit faire votre programme :
+Votre programme doit lire un entier nbMarchands (non nul) puis les nbMarchands entiers suivants, qui indiquent le prix des galettes chez chaque marchand, de la position 1 à la position nbMarchands. Votre programme devra ensuite afficher la position du plus petit de ces prix. En cas d'égalité entre deux prix, on prendra la position la plus grande. Tous les prix et positions sont positifs et ne dépassent pas 1 million.
+nb=int(input())
+min=1000000
+pos=0
+max=0
+for i in range(nb):
+    prix=int(input())
+    pos=pos+1
+    if prix<=min:
+        min=prix
+        if pos>max:
+            max=pos
+print(max)
+------------------------
+Ce que doit faire votre programme :
+Votre programme doit lire la description de plusieurs paires de zones rectangulaires, et pour chacune, déterminer si les deux rectangles s'intersectent.
+
+Vous devez lire un premier entier, le nombre de paires de zones que votre programme devra tester. Ensuite, pour chaque paire possible, deux zones rectangulaires et parallèles aux axes vous sont données l'une après l'autre. Chaque zone est décrite par 4 entiers : son abscisse minimale et maximale puis son ordonnée minimale et maximale.
+nb=int(input())
+for i in range(nb):
+    xminUN=int(input())
+    xmaxUN=int(input())
+    yminUN=int(input())
+    ymaxUN=int(input())
+    xminDEUX=int(input())
+    xmaxDEUX=int(input())
+    yminDEUX=int(input())
+    ymaxDEUX=int(input())
+    if ((xmaxDEUX<=xminUN) or (xmaxUN<=xminDEUX)) or ((ymaxDEUX<=yminUN) or (ymaxUN<=yminDEUX)):
+        print("NON")
+    else:
+        print("OUI")
+-------------------------
+Zones de couleur, france IOI:
+nb=int(input())
+for i in range(nb):
+   x=int(input())
+   y=int(input())
+   if x<0 or x>90 or y<0 or y>70:
+      print("En dehors de la feuille")
+   elif y>60 and ((x>15 and x<45) or (x>60 and x<85)):
+      print("Dans une zone rouge")
+   elif x>10 and x<85 and y>10 and y<55 and not (x>25 and x<50 and y>20 and y<45):
+      print("Dans une zone bleue")
+   else:
+      print("Dans une zone jaune")
+----------------------
+Ce que doit faire votre programme :
+Votre programme doit d'abord lire un entier : le nombre maximum de pierres dont pourra être composée la pyramide. Il devra ensuite calculer et afficher un entier : la hauteur de la plus grande pyramide qui pourra être construite, ainsi que le nombre de pierres qui sera nécessaire.
+nombreMaximumPierres = int(input())
+nombrePierres = 0
+hauteur = 1
+while nombrePierres + hauteur * hauteur <= nombreMaximumPierres:
+   nombrePierres = nombrePierres + hauteur * hauteur
+   hauteur = hauteur + 1
+print(hauteur - 1)
+print(nombrePierres)
+----------------------
+Ce que doit faire votre programme :
+Votre programme devra lire trois entiers : le nombre total de mesures envisagées ainsi que la température minimum et maximum autorisées. Les entiers suivants seront les différentes températures relevées au cours du temps.
+
+Tant que les températures relevées restent dans le bon intervalle, votre programme devra écrire le texte « Rien à signaler », mais dès que la température n'est pas bonne il doit écrire le texte « Alerte !! » et s'arrêter.
+
+totalMesure=int(input())
+min=int(input())
+max=int(input())
+nbMesure=0
+alerte= False
+while nbMesure<totalMesure and alerte== False:
+    temp=int(input())
+    if min<=temp<=max:
+        alerte=False
+        print("Rien à signaler")
+    else:
+        alerte= True
+    nbMesure=nbMesure+1
+if alerte==True:
+    print("Alerte !!")
